@@ -126,3 +126,15 @@
 - 실행 결과: VSCode 탐색기에서 `test-backup.txt`로 변경된 것을 확인하였다.
 - 학습 내용: `Rename-Item` 명령어를 사용하여 파일의 이름을 변경하였다.
 - 결과: 정상 실행
+
+### 12. 파일 이동
+
+- 명령어: `Move-Item practice\test.txt test-moved.txt`
+- 실행 결과: `practice` 폴더의 `test.txt`를 `C:\study`로 이동하면서 이름을 `test-moved.txt`로 변경하였다.
+- 확인 결과: VSCode 탐색기에서 이동된 파일 확인
+
+### 13. 파일 삭제
+
+- 명령어: `Remove-Item test-moved.txt`
+- 실행 결과: `test-moved.txt` 파일이 삭제되었다.
+- 확인 결과: VSCode 탐색기에서 해당 파일이 사라진 것을 확인하였다.
