@@ -1,10 +1,31 @@
-# 나의 첫 웹 서버
+# 코디세이 개발 워크스테이션 구축 미션
 
-## 1. 프로젝트 개요
-- 도커(Docker)를 이용해 Nginx 웹 서버를 실행하고, 나만의 웹 페이지를 띄우는 프로젝트입니다.
+## 프로젝트 개요
+본 프로젝트는 개발 환경을 구축하고,
+터미널 명령어, 파일 권한, Docker, Git/GitHub의
+기본 사용법을 익히기 위한 실습입니다.
 
-## 2. 사용한 기술
-- Docker, Nginx, HTML, Git/GitHub
+## 실행 환경
+- 운영체제(OS): Windows 11
+- 코드 편집기: VS Code
+- 터미널: PowerShell
+- Linux 환경: Ubuntu (WSL, 확인 예정)
+- Docker 버전: 확인 후 입력
+- Git 버전: 확인 후 입력
+- 프로젝트 경로: C:\study
+
+## 수행 항목 체크리스트
+- [x] 터미널 기본 명령어 실습
+- [ ] Linux 파일 권한 변경
+- [ ] Docker 설치 및 실행 확인
+- [ ] Docker 이미지 및 컨테이너 관리
+- [ ] Dockerfile 이미지 빌드
+- [ ] 웹 서버 포트 매핑 확인
+- [ ] Docker 볼륨 데이터 보존
+- [ ] Git 설정 확인
+- [x] GitHub 원격 저장소 연결
+
+---
 
 ## 3. 실행 방법
 1. 이미지 빌드: `docker build -t my-web-server .`
