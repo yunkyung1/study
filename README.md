@@ -1,90 +1,142 @@
 # 코디세이 개발 워크스테이션 구축 미션
 
-## 프로젝트 개요
+## 1. 프로젝트 개요
 본 프로젝트는 개발 환경을 구축하고,
 터미널 명령어, 파일 권한, Docker, Git/GitHub의
 기본 사용법을 익히기 위한 실습입니다.
 
-## 실행 환경
-- 운영체제(OS): Windows 11
-- 코드 편집기: VS Code
-- 터미널: PowerShell
-- Linux 환경: Ubuntu (WSL, 확인 예정)
-- Docker 버전: 확인 후 입력
-- Git 버전: 확인 후 입력
-- 프로젝트 경로: C:\study
-
-## 수행 항목 체크리스트
+## 2.수행 항목 체크리스트
 - [x] 터미널 기본 명령어 실습
 - [ ] Linux 파일 권한 변경
-- [ ] Docker 설치 및 실행 확인
+- [x] Docker 설치 및 실행 확인
 - [ ] Docker 이미지 및 컨테이너 관리
 - [ ] Dockerfile 이미지 빌드
-- [ ] 웹 서버 포트 매핑 확인
+- [x] 웹 서버 포트 매핑 확인
 - [ ] Docker 볼륨 데이터 보존
-- [ ] Git 설정 확인
+- [x] Git 설정 확인
 - [x] GitHub 원격 저장소 연결
 
+
+## 3. 실행 환경
+
+- 운영체제(OS): Windows (빌드 26300.9711)
+- 터미널 및 셸: Windows PowerShell
+- 코드 편집기: Visual Studio Code (VS Code)
+- Linux 실습 환경: Ubuntu (WSL2)
+- WSL 버전: 3.0.3.0
+- Docker Engine: 29.9.2
+- Docker Desktop: 4.98.0
+- Git 버전: 2.56.0.windows.4
+- Docker 실행 상태: 컨테이너 2개 실행 중, 이미지 2개
+- Ubuntu 상태: 설치 완료 (현재 Stopped)
+- 프로젝트 경로: `C:\study`
+- GitHub 저장소: https://github.com/yunkyung1/study
+
+### 개발 환경 확인 명령어
+
+다음 명령어를 실행하여 설치 버전과 동작 상태를 확인하였습니다.
+
+docker --version
+docker info
+wsl --version
+wsl -l -v
+git --version
 ---
 
-## 3. 실행 방법
+## 4. 실행 방법
 1. 이미지 빌드: `docker build -t my-web-server .`
 2. 컨테이너 실행: `docker run -d -p 8081:80 --name my-site my-web-server`
 
-## 4. 결과 확인
+결과 확인
 - 브라우저에서 `localhost:8081` 접속
 
-## 터미널 기본 명령어 실습
+## 5.  터미널 기본 명령어 실습
 
 ### 1. 현재 작업 경로 확인
 
 - 명령어: `pwd`
 - 실행 결과: `C:\study`
-- 설명: 현재 작업 중인 폴더의 위치를 확인하였다.
-- 결과: 정상 실행
-![파일 이름 변경 증거](docs/images/1.png)
+<!-- ![파일 이름 변경 증거](docs/images/1.png) -->
+PS C:\study> pwd
+
+Path    
+----    
+C:\study
+
 
 ### 2. 작업 폴더의 파일 목록 확인
 
 - 명령어: `dir`
 - 실행 경로: `C:\study`
-- 확인한 폴더: `app`
-- 확인한 파일: `Dockerfile`, `hello.txt`, `index.html`, `README.md`
-- 학습 내용: `dir` 명령어를 이용하여 폴더와 파일의 목록, 크기, 수정 시간을 확인하였다.
-- 결과: 정상 실행
+
+PS C:\study> dir
+    디렉터리: C:\study
+
+
+Mode                 LastWriteTime         Length Name                  
+----                 -------------         ------ ----                  
+d-----      2026-11-03   오후 1:17                app                   
+d-----      2026-11-04   오후 1:47                docs                  
+d-----      2026-11-04   오후 1:47                practice              
+-a----      2026-11-03  오후 12:42             71 Dockerfile            
+-a----      2026-11-03  오후 12:42             72 hello.txt             
+-a----      2026-11-03  오후 12:42            439 index.html            
+-a----      2026-11-04   오후 5:49           6194 README.md             
+
+
 
 ### 3. 폴더 이동
 
 - 명령어: `cd app`
 - 이동 전 경로: `C:\study`
 - 이동 후 경로: `C:\study\app`
-- 학습 내용: `cd` 명령어를 사용하여 하위 폴더로 이동하였다.
-- 결과: 정상 실행
+PS C:\study> cd app
+PS C:\study\app> 
 
 ### 4. 상위 폴더로 이동
 
 - 명령어: `cd ..`
 - 이동 전 경로: `C:\study\app`
 - 이동 후 경로: `C:\study`
-- 학습 내용: `cd ..` 명령어를 이용하여 상위 폴더로 이동하였다.
-- 결과: 정상 실행
+PS C:\study\app> cd ..
+PS C:\study> 
 
 ### 5. 새 폴더 생성
 
-- 명령어: `mkdir practice`
-- 생성 경로: `C:\study\practice`
-- 학습 내용: `mkdir` 명령어를 사용하여 새로운 폴더를 생성하였다.
-- 실행 결과: `practice` 폴더 생성 확인
-- 결과: 정상 실행
+- 명령어: `mkdir test1`
+- 생성 경로: `C:\study> mkdir test1`
+PS C:\study> mkdir test1
+
+
+    디렉터리: C:\study
+
+
+Mode                 LastWriteTime         Length Name                  
+----                 -------------         ------ ----                  
+d-----      2026-11-04   오후 5:59                test1                 
+
+
 
 ### 6. 파일 및 폴더 목록 조회
 
 - 명령어: `ls`
 - 실행 경로: `C:\study`
-- 확인한 폴더: `app`, `practice`
-- 확인한 파일: `Dockerfile`, `hello.txt`, `index.html`, `README.md`
-- 학습 내용: `ls` 명령어로 현재 폴더의 내용을 확인하고, PowerShell에서 `dir`과 동일한 결과가 출력되는 것을 확인하였다.
-- 결과: 정상 실행
+PS C:\study> ls
+
+
+    디렉터리: C:\study
+
+
+Mode                 LastWriteTime         Length Name                  
+----                 -------------         ------ ----                  
+d-----      2026-11-03   오후 1:17                app                   
+d-----      2026-11-04   오후 1:47                docs                  
+d-----      2026-11-04   오후 1:47                practice              
+d-----      2026-11-04   오후 5:59                test1                 
+-a----      2026-11-03  오후 12:42             71 Dockerfile            
+-a----      2026-11-03  오후 12:42             72 hello.txt             
+-a----      2026-11-03  오후 12:42            439 index.html            
+-a----      2026-11-04   오후 6:00           6696 README.md   
 
 ### 트러블슈팅 1. PowerShell에서 ls -a 오류
 
@@ -116,46 +168,104 @@
 
   ### 7. 새 파일 생성
 
-- 명령어: `New-Item practice\test.txt -ItemType File`
-- 생성 위치: `C:\study\practice\test.txt`
-- 실행 결과: 크기가 0바이트인 빈 파일 생성
-- 학습 내용: PowerShell에서 새 파일을 만드는 방법을 학습하였다.
-- 결과: 정상 실행
+- 명령어: `New-Item test1\test.txt -ItemType File`
+- 생성 위치: `C:\study\test1`
+PS C:\study> New-Item test1\test.txt -ItemType File
+
+
+    디렉터리: C:\study\test1
+
+
+Mode                 LastWriteTime         Length Name                  
+----                 -------------         ------ ----                  
+-a----      2026-11-04   오후 6:03              0 test.txt              
+![실습 결과](docs/images/5-7.png)
 
 ### 9. 파일 내용 수정 및 확인
 
-- 수정 명령어: `Set-Content practice\test.txt "hello docker"`
-- 확인 명령어: `Get-Content practice\test.txt`
-- 실행 결과: `hello docker`
-- 학습 내용: 파일의 기존 내용을 수정하고 저장된 결과를 확인하였다.
-- 결과: 정상 실행
+- 수정 명령어: `Set-Content test1\test.txt "hello docker"`
+- 확인 명령어: `Get-Content test1\test.txt`
+
+PS C:\study> Set-Content test1\test.txt "hello docker"
+PS C:\study> Get-Content test1\test.txt
+hello docker
+PS C:\study> 
+
+![실습 결과](docs/images/5-9.png)
 
 ### 10. 파일 복사
 
-- 명령어: `Copy-Item practice\test.txt practice\test-copy.txt`
-- 원본 파일: `C:\study\practice\test.txt`
-- 복사 파일: `C:\study\practice\test-copy.txt`
-- 실행 결과: `test.txt`와 `test-copy.txt` 두 파일이 생성된 것을 확인하였다.
-- 학습 내용: `Copy-Item` 명령어를 사용하여 원본 파일을 유지하면서 복사본을 생성하였다.
-- 결과: 정상 실행
+- 명령어: `Copy-Item test1\test.txt test1\test-copy.txt`
+- 원본 파일: `C:\study\test1\test.txt`
+- 복사 파일: `C:\study\test1\test-copy.txt`
+  확인은 cd test1 가서 dir 해봄 cd ..
+ 
+  디렉터리: C:\study\test1
+
+
+Mode                 LastWriteTime         Length Name                                             
+----                 -------------         ------ ----                                             
+-a----      2026-11-04   오후 6:10             14 test-copy.txt                                    
+-a----      2026-11-04   오후 6:10             14 test.txt   
 
 ### 11. 파일 이름 변경
 
-- 명령어: `Rename-Item practice\test-copy.txt test-backup.txt`
+- 명령어: `Rename-Item test1\test-copy.txt test-backup.txt`
 - 변경 전 파일명: `test-copy.txt`
 - 변경 후 파일명: `test-backup.txt`
-- 실행 결과: VSCode 탐색기에서 `test-backup.txt`로 변경된 것을 확인하였다.
-- 학습 내용: `Rename-Item` 명령어를 사용하여 파일의 이름을 변경하였다.
-- 결과: 정상 실행
+PS C:\study> Rename-Item test1\test-copy.txt test-backup.txt
+PS C:\study> dir test1
+
+
+    디렉터리: C:\study\test1
+
+
+Mode                 LastWriteTime         Length Name                                             
+----                 -------------         ------ ----                                             
+-a----      2026-11-04   오후 6:10             14 test-backup.txt                                  
+-a----      2026-11-04   오후 6:10             14 test.txt                                         
+
 
 ### 12. 파일 이동
 
-- 명령어: `Move-Item practice\test.txt test-moved.txt`
-- 실행 결과: `practice` 폴더의 `test.txt`를 `C:\study`로 이동하면서 이름을 `test-moved.txt`로 변경하였다.
-- 확인 결과: VSCode 탐색기에서 이동된 파일 확인
+- 명령어: `Move-Item test1\test.txt test-moved.txt`
+ `test.txt`를 `C:\study`로 이동하면서 이름을 `test-moved.txt`로 변경하였다.
+
+PS C:\study> Move-Item test1\test.txt test-moved.txt
+PS C:\study> dir test-moved.txt
+
+
+    디렉터리: C:\study
+
+
+Mode                 LastWriteTime         Length Name                                             
+----                 -------------         ------ ----                                             
+-a----      2026-11-04   오후 6:10             14 test-moved.txt  
 
 ### 13. 파일 삭제
 
 - 명령어: `Remove-Item test-moved.txt`
-- 실행 결과: `test-moved.txt` 파일이 삭제되었다.
-- 확인 결과: VSCode 탐색기에서 해당 파일이 사라진 것을 확인하였다.
+ `test-moved.txt` 파일이 삭제되었다.
+
+PS C:\study> Remove-Item test-moved.txt
+PS C:\study> Test-Path test-moved.txt
+False
+
+## 5. Linux 파일 권한 실습
+
+### 실습 환경
+- 운영체제: Ubuntu (WSL2)
+- 실습 폴더: `/home/user/test`
+- 실습 파일: `test.txt`
+
+### 1. 폴더 및 파일 생성
+
+
+cd ~
+mkdir test
+cd test
+echo "Hello Linux" > test.txt
+ls -l
+
+![실습 결과](docs/images/6-1.png)
+![실습 결과](docs/images/6-2.png)
