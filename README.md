@@ -179,7 +179,7 @@ PS C:\study> New-Item test1\test.txt -ItemType File
 Mode                 LastWriteTime         Length Name                  
 ----                 -------------         ------ ----                  
 -a----      2026-11-04   오후 6:03              0 test.txt              
-![실습 결과](docs/images/5-7.png)
+
 
 ### 9. 파일 내용 수정 및 확인
 
