@@ -304,7 +304,7 @@ volume-test1
 PS C:\study> docker run --rm -v mydata:/data nginx cat /data/test.txt
 HelloVolume
 
-![Docker Hello World 실행 결과](docs/images/8-1.png)
+![볼륨 데이터 보존 실습](docs/images/8-1.png)
                   
 ## 9. Git 설정 및 GitHub 연결 확인
 
@@ -344,7 +344,7 @@ services:
     ports:
       - "8082:80"
 
-![GitHub 연결 확인](docs/images/10-1.png)
+![보너스 과제](docs/images/10-1.png)
 
 
  PS C:\study\compose-practice> docker compose config
@@ -370,5 +370,5 @@ PS C:\study\compose-practice> docker compose up
  ✔ Network compose-practice_default Created                                           0.1s
  ✔ Container compose-practice-web-1 Created  
 
- ![GitHub 연결 확인](docs/images/10-2.png)
- ![GitHub 연결 확인](docs/images/10-3.png)
+ ![보너스 과제](docs/images/10-2.png)
+ ![보너스 과제](docs/images/10-3.png)
