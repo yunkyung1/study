@@ -10,10 +10,10 @@
 - [x] 터미널 기본 명령어 실습
 - [x] Linux 파일 권한 변경
 - [x] Docker 설치 및 실행 확인
-- [ ] Docker 이미지 및 컨테이너 관리
+- [x] Docker 이미지 및 컨테이너 관리
 - [x] Dockerfile 이미지 빌드
 - [x] 웹 서버 포트 매핑 확인
-- [ ] Docker 볼륨 데이터 보존
+- [x] Docker 볼륨 데이터 보존
 - [x] Git 설정 확인
 - [x] GitHub 원격 저장소 연결
 
@@ -50,9 +50,10 @@ git --version
 
 결과 확인
 - 브라우저에서 `localhost:8081` 접속
+![Docker Hello World 실행 결과](docs/images/4-1.png)
+
 
 ## 5.  터미널 기본 명령어 실습
-
 ### 1. 현재 작업 경로 확인
 
 - 명령어: `pwd`
@@ -252,7 +253,7 @@ PS C:\study> Remove-Item test-moved.txt
 PS C:\study> Test-Path test-moved.txt
 False
 
-## 5. Linux 파일 권한 실습
+## 6. Linux 파일 권한 실습
 
 ### 실습 환경
 - 운영체제: Ubuntu (WSL2)
@@ -270,3 +271,47 @@ ls -l
 
 ![실습 결과](docs/images/6-1.png)
 ![실습 결과](docs/images/6-2.png)
+
+## 7. Docker Hello World 실행 확인
+
+- 실행 명령어: `docker run hello-world`
+PS C:\study> docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+4f55086f7dd0: Pull complete 
+Digest: sha256:c567b231f65614688711a75f31518a064258a51d442117a3e771a3a8fdba78ef
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+![Docker Hello World 실행 결과](docs/images/7-1.png)
+
+
+## 8. Docker 볼륨 데이터 보존 실습
+컨테이너 삭제 후에도 볼륨에 저장된 데이터가 유지되는지 확인
+
+볼륨 생성: docker volume create mydata
+파일 저장: docker run --name volume-test1 -v mydata:/data nginx sh -c "echo HelloVolume > /data/test.txt"
+컨테이너 삭제: docker rm volume-test1
+데이터 확인: docker run --rm -v mydata:/data nginx cat /data/test.txt
+
+PS C:\study> docker volume create mydata
+mydata
+PS C:\study> docker run --name volume-test1 -v mydata:/data nginx sh -c "echo HelloVolume > /data/test.txt"
+PS C:\study> docker rm volume-test1
+volume-test1
+PS C:\study> docker run --rm -v mydata:/data nginx cat /data/test.txt
+HelloVolume
+
+![Docker Hello World 실행 결과](docs/images/8-1.png)
+                  
+## 9. Git 설정 및 GitHub 연결 확인
+
+- 실행 명령어: `git remote -v`
+PS C:\study> git remote -v                         
+origin  https://github.com/yunkyung1/study.git (fetch)
+origin  https://github.com/yunkyung1/study.git (push)     
+
+![GitHub 연결 확인](docs/images/9-1.png)
+![GitHub 연결 확인](docs/images/9-12.png)
