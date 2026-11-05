@@ -44,9 +44,38 @@ wsl -l -v
 git --version
 ---
 
-## 4. 실행 방법
+## 4. Docker 이미지 빌드 및 실행
 1. 이미지 빌드: `docker build -t my-web-server .`
+S C:\study> docker build -t my-web-server .
+[+] Building 0.1s (7/7) FINISHED                                     docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                 0.0s
+ => => transferring dockerfile: 108B                                                 0.0s
+ => [internal] load metadata for docker.io/library/nginx:latest                      0.0s
+ => [internal] load .dockerignore                                                    0.0s
+ => => transferring context: 2B                                                      0.0s
+ => [internal] load build context                                                    0.0s
+ => => transferring context: 32B                                                     0.0s
+ => [1/2] FROM docker.io/library/nginx:latest                                        0.0s
+ => CACHED [2/2] COPY ./index.html /usr/share/nginx/html/index.html                  0.0s
+ => exporting to image                                                               0.0s
+ => => exporting layers                                                              0.0s
+ => => writing image sha256:364181123e2f35031fbc7d1363452d49b46c007d2f6630e562718bb  0.0s
+ => => naming to docker.io/library/my-web-server     
 2. 컨테이너 실행: `docker run -d -p 8081:80 --name my-site my-web-server`
+3. 컨테이너 목록 확인: `docker ps -a`
+PS C:\study> docker ps -a
+CONTAINER ID   IMAGE                  COMMAND                   CREATED          STATUS                   PORTS                                     NAMES
+575c9b45498a   my-web-server:latest   "/docker-entrypoint.…"   40 minutes ago   Up 40 minutes            0.0.0.0:8082->80/tcp, [::]:8082->80/tcp   compose-practice-web-1
+9c675424f181   hello-world            "/hello"                  2 hours ago      Exited (0) 2 hours ago                                             optimistic_lederberg
+6f6409caabc3   my-web-server          "/docker-entrypoint.…"   2 hours ago      Up 2 hours               0.0.0.0:8081->80/tcp, [::]:8081->80/tcp   my-site
+4. 이미지 목록 확인: `docker images`
+PS C:\study> docker images 
+                                                                     i Info →   U  In Use
+IMAGE                  ID             DISK USAGE   CONTENT SIZE   EXTRA
+hello-world:latest     e2ac70e7319a       10.1kB             0B    U   
+my-web-server:latest   364181123e2f        163MB             0B    U   
+nginx:latest           1ebe58b0003b        163MB             0B        
+PS C:\study> 
 
 결과 확인
 - 브라우저에서 `localhost:8081` 접속
@@ -263,14 +292,25 @@ False
 ### 1. 폴더 및 파일 생성
 
 
-cd ~
-mkdir test
-cd test
-echo "Hello Linux" > test.txt
-ls -l
+PS C:\Users\User> wsl
+user@5F-119:/mnt/c/Users/User$ 
 
-![실습 결과](docs/images/6-1.png)
-![실습 결과](docs/images/6-2.png)
+user@5F-119:~$ mkdir -p ~/test
+user@5F-119:~$ cd ~/test
+user@5F-119:~/test$ echo "Hello Linux" > test.txt
+user@5F-119:~/test$ chmod 755 test.txt
+user@5F-119:~/test$ ls -l
+total 4
+-rwxr-xr-x 1 user user 12 Nov  5 14:03 test.txt
+755: 소유자는 읽기·쓰기·실행, 그룹과 기타 사용자는 읽기·실행 권한을 가진다.
+
+user@5F-119:~/test$ chmod 644 test.txt
+user@5F-119:~/test$ ls -l test.txt
+-rw-r--r-- 1 user user 12 Nov  5 14:03 test.txt
+user@5F-119:~/test$ 
+
+644: 소유자는 읽기·쓰기, 그룹과 기타 사용자는 읽기 권한을 가진다.
+
 
 ## 7. Docker Hello World 실행 확인
 
