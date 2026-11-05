@@ -314,4 +314,61 @@ origin  https://github.com/yunkyung1/study.git (fetch)
 origin  https://github.com/yunkyung1/study.git (push)     
 
 ![GitHub 연결 확인](docs/images/9-1.png)
-![GitHub 연결 확인](docs/images/9-12.png)
+![GitHub 연결 확인](docs/images/9-2.png)
+
+## 10. 보너스 과제(Docker Compose 기초)
+Docker Compose의 기본 구조를 이해하고 YAML 설정 파일을 이용하여 단일 웹 서버를 실행한다.
+
+기존에 제작한 my-web-server 이미지를 재사용하였다.
+docker-compose.yml 파일을 생성하여 이미지와 포트 설정을 문서화하였다.
+
+
+PS C:\study> mkdir C:\study\compose-practice
+
+
+    디렉터리: C:\study
+
+
+Mode                 LastWriteTime         Length Name                                   
+----                 -------------         ------ ----                                   
+d-----      2026-11-05   오후 1:00                compose-practice                       
+
+
+PS C:\study> cd C:\study\compose-practice
+PS C:\study\compose-practice> code docker-compose.yml
+ 이동하여, 코드를 열었음 
+
+services:
+  web:
+    image: my-web-server:latest
+    ports:
+      - "8082:80"
+
+![GitHub 연결 확인](docs/images/10-1.png)
+
+
+ PS C:\study\compose-practice> docker compose config
+name: compose-practice
+services:
+  web:
+    image: my-web-server:latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 80
+        published: "8082"
+        protocol: tcp
+networks:
+  default:
+    name: compose-practice_default
+
+작동확인 후 실행,
+
+PS C:\study\compose-practice> docker compose up
+[+] up 2/2
+ ✔ Network compose-practice_default Created                                           0.1s
+ ✔ Container compose-practice-web-1 Created  
+
+ ![GitHub 연결 확인](docs/images/10-2.png)
+ ![GitHub 연결 확인](docs/images/10-3.png)
