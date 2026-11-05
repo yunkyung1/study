@@ -412,3 +412,19 @@ PS C:\study\compose-practice> docker compose up
 
  ![보너스 과제](docs/images/10-2.png)
  ![보너스 과제](docs/images/10-3.png)
+
+ ### GitHub 업로드 실행 결과
+ PS C:\study> git add . 
+PS C:\study> git commit -m" 미션저장 "
+[main edcafa2]  미션저장
+ 1 file changed, 48 insertions(+), 8 deletions(-)
+PS C:\study> git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 1.49 KiB | 1.49 MiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/yunkyung1/study.git
+   54d0889..edcafa2  main -> main
