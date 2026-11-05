@@ -353,7 +353,6 @@ user@5F-119:~/test$
 
 644: 소유자는 읽기·쓰기, 그룹과 기타 사용자는 읽기 권한을 가진다.
 
-
 ## 7. Docker Hello World 실행 확인
 
 - 실행 명령어: `docker run hello-world`
