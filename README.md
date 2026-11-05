@@ -33,6 +33,44 @@
 - 프로젝트 경로: `C:\study`
 - GitHub 저장소: https://github.com/yunkyung1/study
 
+3-1 디렉터리 구성
+PS C:\study> tree C:\study /F
+폴더 PATH의 목록입니다.
+볼륨 일련 번호는 DEDF-9B35입니다.
+C:\STUDY
+│  Dockerfile
+│  hello.txt
+│  index.html
+│  README.md
+│  
+├─app
+├─compose-practice
+│      docker-compose.yml
+│      
+├─docs
+│  └─images
+│          1.png
+│          10-1.png
+│          10-2.png
+│          10-3.png
+│          2.png
+│          4-1.png
+│          5-9.png
+│          6-1.png
+│          6-2.png
+│          7-1.png
+│          8-1.png
+│          9-1.png
+│          9-2.png
+│          스크린샷 2026-11-04 171031.png
+│          
+├─practice
+│      test-backup.txt
+│      
+└─test1
+        test-backup.txt
+
+
 ### 개발 환경 확인 명령어
 
 다음 명령어를 실행하여 설치 버전과 동작 상태를 확인하였습니다.
@@ -81,6 +119,10 @@ PS C:\study>
 - 브라우저에서 `localhost:8081` 접속
 ![Docker Hello World 실행 결과](docs/images/4-1.png)
 
+5. Docker 이미지와 컨테이너의 차이
+Docker 이미지는 실행을 위한 기반이고, 컨테이너는 해당 이미지를 사용하여 실제 동작하는 환경이라는 차이를 이해하였다.
+docker build -t my-web-server
+docker run -d -p 8081:80 --name my-site my-web-server
 
 ## 5.  터미널 기본 명령어 실습
 ### 1. 현재 작업 경로 확인
